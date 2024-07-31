@@ -1,0 +1,33 @@
+{
+  "name": "@genr/dirouted",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "tsup --clean"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/main.d.js",
+        "default": "./dist/main.js"
+      },
+      "require": {
+        "types": "./dist/main.d.cts",
+        "default": "./dist/main.cjs"
+      }
+    }
+  },
+  "devDependencies": {
+    "tsup": "^8.2.3"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-router-dom": ">=6",
+    "vite": ">=4"
+  }
+}

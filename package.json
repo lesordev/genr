@@ -1,11 +1,8 @@
 {
-  "name": "@genr/dirouted",
+  "name": "@genr/repo",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "keywords": [],
   "author": "trungluc.dev@gmail.com",
   "license": "ISC"

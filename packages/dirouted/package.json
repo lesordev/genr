@@ -20,6 +20,16 @@
         "types": "./dist/main.d.cts",
         "default": "./dist/main.cjs"
       }
+    },
+    "./plugin": {
+      "import": {
+        "types": "./dist/plugin.d.js",
+        "default": "./dist/plugin.js"
+      },
+      "require": {
+        "types": "./dist/plugin.d.cts",
+        "default": "./dist/plugin.cjs"
+      }
     }
   },
   "devDependencies": {

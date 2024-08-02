@@ -1,18 +1,16 @@
 import { PropsWithChildren } from "react";
 
-type Element = () => JSX.Element;
-type ElementWithChildren = (props: PropsWithChildren) => JSX.Element;
+export type BaseComponent = () => JSX.Element;
+export type LayoutComponent = (props: PropsWithChildren) => JSX.Element;
+export type ErrorComponent = (props: { error: unknown }) => JSX.Element;
 
-export type Page = { default: Element; loader: () => unknown };
-export type Layout = { default: ElementWithChildren };
-export type Error = { default: Element };
-export type NotFound = { default: Element };
-export type Loading = { default: Element };
+export type Module = { default: BaseComponent };
 
-export type Node = {
-  Page: Page;
-  Layout: Layout;
-  Error: Error;
-  NotFound: NotFound;
-  children: Node[];
+export type DiroutedNode = {
+  page?: BaseComponent;
+  layout?: LayoutComponent;
+  error?: ErrorComponent;
+  notFound?: BaseComponent;
+  loading?: BaseComponent;
+  [key: string]: BaseComponent | LayoutComponent | ErrorComponent | DiroutedNode | undefined;
 };

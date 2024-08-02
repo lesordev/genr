@@ -7,4 +7,9 @@ export default defineConfig([
     dts: true,
     external: ["react", "react-router-dom"],
   },
+  {
+    entry: ["src/plugin.ts"],
+    format: ["esm", "cjs"],
+    dts: true,
+  },
 ]);

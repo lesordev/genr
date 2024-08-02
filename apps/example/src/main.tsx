@@ -1,8 +1,8 @@
-import { createRoot } from "react-dom/client";
 import { StrictMode } from "react";
-import { Routes } from "@genr/dirouted";
+import { createRoot } from "react-dom/client";
 
 import "@/styles/global.css";
+import { Routes } from "@genr/dirouted";
 
 const root = document.getElementById("root")!;
 

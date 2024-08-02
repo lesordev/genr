@@ -1,2 +1,1 @@
-export { Routes } from "@/components/Routes";
-export { dirouted } from "@/plugins/dirouted";
+export * from "@/components/Routes";

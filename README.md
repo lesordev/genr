@@ -1,9 +1,9 @@
 # @genr/dirouted
 
-- [ ] page
-- [ ] layout
-- [ ] error
+- [x] page
+- [x] layout
+- [x] error
 - [ ] not-found
-- [ ] loading
-- [ ] group routes
-- [ ] dynamic route (slug)
+- [x] loading
+- [x] group routes
+- [x] dynamic route (slug)

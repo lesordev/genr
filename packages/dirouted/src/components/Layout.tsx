@@ -7,7 +7,7 @@ type WrapLoadingProps = {
   layout: LayoutComponent;
 };
 
-export function WrapLoading({ loading: Loading, layout: Layout }: WrapLoadingProps) {
+export function SuspenseLayout({ loading: Loading, layout: Layout }: WrapLoadingProps) {
   const element = (
     <Layout>
       <Outlet />

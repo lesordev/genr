@@ -6,7 +6,7 @@ type WrapErrorProps = {
   error: ErrorComponent;
 };
 
-export function WrapError({ error: Error, layout: Layout }: WrapErrorProps) {
+export function ErrorBoundary({ error: Error, layout: Layout }: WrapErrorProps) {
   const error = useRouteError();
 
   return Layout ? (

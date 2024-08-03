@@ -1,8 +1,8 @@
 import { DiroutedNode, Module } from "@/types/dirouted.type";
 import { Suspense } from "react";
 import { createBrowserRouter, RouteObject, RouterProvider } from "react-router-dom";
-import { WrapLoading } from "./WrapLoading";
-import { WrapError } from "./WrapError";
+import { SuspenseLayout } from "./Layout";
+import { ErrorBoundary } from "./ErrorBoundary";
 import { transformKeys } from "@/utils/transformKeys";
 import { validateRoutes } from "@/utils/validateRoutes";
 import { setTree } from "@/utils/setTree";
@@ -24,11 +24,11 @@ function dfsLoop(route: RouteObject, node: DiroutedNode, segment: string) {
   }
 
   if (Layout) {
-    route.element = <WrapLoading layout={Layout} loading={Loading} />;
+    route.element = <SuspenseLayout layout={Layout} loading={Loading} />;
   }
 
   if (Error) {
-    route.errorElement = <WrapError layout={Layout} error={Error} />;
+    route.errorElement = <ErrorBoundary layout={Layout} error={Error} />;
   }
 
   for (const [key, value] of Object.entries(children)) {
@@ -49,6 +49,7 @@ function computeRoutes(): RouteObject[] {
   const FILE_MODULES = transformKeys(
     import.meta.glob<Module>("/src/pages/**/*.{jsx,tsx}", { eager: true })
   );
+
   validateRoutes(FILE_MODULES);
 
   const tree: DiroutedNode = {};

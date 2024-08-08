@@ -57,6 +57,7 @@ const FILES = import.meta.glob<Module>(
   "/src/pages/**/(error|layout|loading|not-found|page).{jsx,tsx}",
   { eager: true }
 );
+
 validateRoutes(FILES);
 const diroute = toDiroute(FILES);
 const route = toRouteObject(diroute);

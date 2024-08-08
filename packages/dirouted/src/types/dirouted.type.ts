@@ -1,10 +1,10 @@
-import { PropsWithChildren } from "react";
+import { ComponentType, PropsWithChildren } from "react";
 
 export type BaseComponent = () => JSX.Element;
 export type LayoutComponent = (props: PropsWithChildren) => JSX.Element;
 export type ErrorComponent = (props: { error: unknown }) => JSX.Element;
 
-export type Module = { default: BaseComponent };
+export type Module = { default: ComponentType };
 
 export type Diroute = {
   page?: BaseComponent;

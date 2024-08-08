@@ -1,19 +1,31 @@
-import { ErrorComponent, LayoutComponent } from "@/types/dirouted.type";
-import { useRouteError } from "react-router-dom";
+import { Component, ComponentType, PropsWithChildren, ReactNode } from "react";
 
-type WrapErrorProps = {
-  layout?: LayoutComponent;
-  error: ErrorComponent;
+type ErrorBoundaryProps = PropsWithChildren<{
+  fallback: ComponentType<{ error: Error }>;
+}>;
+
+type ErrorBoundaryState = {
+  error: Error | false;
 };
 
-export function ErrorBoundary({ error: Error, layout: Layout }: WrapErrorProps) {
-  const error = useRouteError();
+export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
+  constructor(props: ErrorBoundaryProps) {
+    super(props);
+    this.state = { error: false };
+  }
 
-  return Layout ? (
-    <Layout>
-      <Error error={error} />
-    </Layout>
-  ) : (
-    <Error error={error} />
-  );
+  static getDerivedStateFromError(error: Error) {
+    return { error };
+  }
+
+  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+    console.error(error, errorInfo);
+  }
+
+  render() {
+    const { fallback: Fallback, children } = this.props;
+    const { error } = this.state;
+
+    return error ? <Fallback error={error} /> : children;
+  }
 }
